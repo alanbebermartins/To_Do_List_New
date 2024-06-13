@@ -3,7 +3,7 @@
 ## Tecnologias que compoem a aplicação
 
 Frontend: (TypeScript) Vue 2 + Vuetify;\
-Backend: (Python) FastAPI + Uvicorn, com banco de dados PostgreSQL e ORM SQLAlchemy.\
+Backend: (Python) FastAPI + Uvicorn, com banco de dados PostgreSQL e ORM SQLAlchemy.
 
 ## Funcionalidades
 
