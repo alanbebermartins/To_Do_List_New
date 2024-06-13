@@ -7,4 +7,4 @@ Backend: (Python) FastAPI + Uvicorn, com banco de dados PostgreSQL e ORM SQLAlch
 
 ## Funcionalidades
 
-O usuário poderá criar, editar, excluir e ler as tarefas tanto na aplciação web quanto no banco de dados.
+O usuário poderá criar, editar, excluir e ler as tarefas tanto na aplicação web quanto no banco de dados.
