@@ -4,12 +4,23 @@ from app.database import SessionLocal
 
 def create_task(task_title: str, task_description: str):
     # Verificar o comprimento do título da tarefa
+    title_error = None
+    description_error = None
+    
     if len(task_title) > 20:
-        return "O título da tarefa deve possuir no máximo 20 caracteres"
+        title_error = "O título da tarefa deve possuir no máximo 20 caracteres"
     
     # Verificar o comprimento da descrição da tarefa
     if len(task_description) > 100:
-        return "A descrição da tarefa deve possuir no máximo 100 caracteres"
+        description_error = "A descrição da tarefa deve possuir no máximo 100 caracteres"
+    
+    # Se houver qualquer erro, retornar as mensagens de erro
+    if title_error and description_error:
+        return f"{title_error} e {description_error}"
+    elif title_error:
+        return title_error
+    elif description_error:
+        return description_error
     
     db = SessionLocal()
     try:
@@ -25,3 +36,4 @@ def create_task(task_title: str, task_description: str):
     finally:
         # Fechar a sessão do banco de dados
         db.close()
+
