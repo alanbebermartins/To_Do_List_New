@@ -1,6 +1,6 @@
 <script lang="ts">
 import Vue from 'vue';
-import axios from '@/axios';  // Importe o axios configurado
+import { createTask } from '@/api'; 
 
 export default Vue.extend({
   data() {
@@ -21,14 +21,14 @@ export default Vue.extend({
     },
     async salvarTarefa() {
       try {
-        // Enviar dados para o backend via POST
-        const response = await axios.post('/tasks', this.form);
-        console.log('Tarefa salva:', response.data);
+        // Chamar a função createTask para criar a tarefa
+        const data = await createTask(this.form.title, this.form.description);
+        console.log('Tarefa criada com sucesso:', data);
         // Limpar formulário ou tomar outra ação necessária após salvar
         this.form.title = '';
         this.form.description = '';
       } catch (error) {
-        console.error('Erro ao salvar tarefa:', error);
+        console.error('Erro ao criar tarefa:', error.message);
         // Tratar erro, exibir mensagem de erro, etc.
       }
     }
